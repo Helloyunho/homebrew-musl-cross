@@ -110,7 +110,7 @@ class MuslCross < Formula
       # Explicitly enable libisl support to avoid opportunistic linking
       ISL_VER = 0.22
       BINUTILS_VER = 2.34
-      GCC_VER = 9.20
+      GCC_VER = 9.2.0
       MUSL_VER = 1.1.24
       GMP_VER = 6.2.0
       MPC_VER = 1.1.0
