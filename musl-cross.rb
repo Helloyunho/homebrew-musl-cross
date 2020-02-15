@@ -1,14 +1,15 @@
 class MuslCross < Formula
   desc "Linux cross compilers based on musl libc"
-  homepage "https://github.com/richfelker/musl-cross-make"
-  url "https://github.com/richfelker/musl-cross-make/archive/v0.9.8.tar.gz"
+  homepage "https://github.com/Helloyunho/musl-cross-make"
+  url "https://github.com/Helloyunho/musl-cross-make/archive/v0.9.9.tar.gz"
   sha256 "886ac2169c569455862d19789a794a51d0fbb37209e6fae1bda7d6554a689aac"
-  head "https://github.com/richfelker/musl-cross-make.git"
+  head "https://github.com//Helloyunho/musl-cross-make.git"
 
   option "with-aarch64", "Build cross-compilers targeting arm-linux-muslaarch64"
   option "with-arm-hf", "Build cross-compilers targeting arm-linux-musleabihf"
   option "with-arm", "Build cross-compilers targeting arm-linux-musleabi"
   option "with-i486", "Build cross-compilers targeting i486-linux-musl"
+  option "with-i686", "Build cross-compilers targeting i686-linux-musl"
   option "with-mips", "Build cross-compilers targeting mips-linux-musl"
   option "without-x86_64", "Do not build cross-compilers targeting x86_64-linux-musl"
 
@@ -80,6 +81,9 @@ class MuslCross < Formula
     if build.with? "i486"
       targets.push "i486-linux-musl"
     end
+    if build.with? "i686"
+      targets.push "i686-linux-musl"
+    end
     if build.with? "mips"
       targets.push "mips-linux-musl"
     end
@@ -135,6 +139,9 @@ class MuslCross < Formula
     end
     if build.with? "i486"
       system "#{bin}/i486-linux-musl-cc", (testpath/"hello.c")
+    end
+    if build.with? "i686"
+      system "#{bin}/i686-linux-musl-cc", (testpath/"hello.c")
     end
     if build.with? "aarch64"
       system "#{bin}/aarch64-linux-musl-cc", (testpath/"hello.c")
