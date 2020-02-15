@@ -108,7 +108,13 @@ class MuslCross < Formula
       COMMON_CONFIG += --with-debug-prefix-map=$(PWD)=
 
       # Explicitly enable libisl support to avoid opportunistic linking
-      ISL_VER = 0.15
+      ISL_VER = 0.22
+      BINUTILS_VER = 2.34
+      GCC_VER = 9.20
+      MUSL_VER = 1.1.24
+      GMP_VER = 6.2.0
+      MPC_VER = 1.1.0
+      MPFR_VER = 4.0.2
 
       # https://llvm.org/bugs/show_bug.cgi?id=19650
       ifeq ($(shell $(CXX) -v 2>&1 | grep -c "clang"), 1)
